@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout/Layout'
 import { Home } from '../pages/Home'
 import { Favorites } from '../pages/Favorites'
 import { ConcertDetail } from '../pages/ConcertDetail'
+import { Recommendations } from '../pages/Recommendations'
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'conciertos/:id', element: <ConcertDetail /> },
       { path: 'favoritos', element: <Favorites /> },
+      { path: 'recomendaciones', element: <Recommendations /> },
     ],
   },
 ])

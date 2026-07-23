@@ -1,0 +1,37 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: v.$space-3;
+  margin-bottom: v.$space-6;
+}
+
+.subtitle {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+  max-width: 60ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-5;
+
+  @include m.respond-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.error {
+  color: v.$color-danger;
+  font-size: v.$font-size-sm;
+  margin-bottom: v.$space-4;
+}

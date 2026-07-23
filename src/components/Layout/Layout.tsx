@@ -29,6 +29,14 @@ export function Layout() {
           >
             Favoritos
           </NavLink>
+          <NavLink
+            to="/recomendaciones"
+            className={({ isActive }) =>
+              isActive ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink
+            }
+          >
+            Recomendaciones
+          </NavLink>
         </nav>
         <div className={styles.actions}>
           <ArtistSearch />
