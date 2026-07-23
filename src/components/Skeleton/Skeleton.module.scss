@@ -1,0 +1,22 @@
+@use '../../styles/variables' as v;
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    v.$color-bg-elevated 25%,
+    v.$color-bg-elevated-hover 37%,
+    v.$color-bg-elevated 63%
+  );
+  background-size: 400% 100%;
+  border-radius: v.$radius-md;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

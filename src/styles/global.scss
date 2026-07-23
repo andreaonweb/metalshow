@@ -1,0 +1,71 @@
+@use 'variables' as v;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: v.$color-bg;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217, 43, 43, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(217, 43, 43, 0.06), transparent);
+  background-attachment: fixed;
+  color: v.$color-text;
+  font-family: v.$font-body;
+  font-size: v.$font-size-md;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+h3,
+h4 {
+  font-family: v.$font-display;
+}
+
+h1,
+h2 {
+  font-family: v.$font-logo;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 0 12px rgba(217, 43, 43, 0.55),
+    0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

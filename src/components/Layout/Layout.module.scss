@@ -1,0 +1,112 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: v.$space-3;
+  padding: v.$space-3 v.$space-4;
+  border-bottom: 1px solid v.$color-border;
+  box-shadow: 0 1px 12px rgba(217, 43, 43, 0.15);
+  position: sticky;
+  top: 0;
+  background-color: rgba(11, 11, 13, 0.92);
+  backdrop-filter: blur(6px);
+  z-index: 30;
+
+  @include m.respond-up(md) {
+    grid-template-columns: 1fr auto 1fr;
+    justify-items: stretch;
+    padding: v.$space-3 v.$space-5;
+  }
+}
+
+.logo {
+  justify-self: center;
+
+  @include m.respond-up(md) {
+    justify-self: start;
+  }
+}
+
+.logoImage {
+  height: 3.75rem;
+  width: auto;
+  display: block;
+
+  @include m.respond-up(md) {
+    height: 4.5rem;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: v.$space-5;
+  justify-self: center;
+
+  @include m.respond-up(md) {
+    grid-column: 2;
+  }
+}
+
+.navLink {
+  position: relative;
+  color: v.$color-text-muted;
+  text-decoration: none;
+  font-family: v.$font-display;
+  font-weight: 600;
+  font-size: v.$font-size-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: v.$space-1;
+
+  @include m.focus-ring;
+
+  &:hover {
+    color: v.$color-text;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: v.$color-accent;
+    transform: scaleX(0);
+    transition: transform 0.15s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.navLinkActive {
+  color: v.$color-text;
+
+  &::after {
+    transform: scaleX(1);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  justify-self: center;
+
+  @include m.respond-up(md) {
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$space-6 v.$space-5;
+}

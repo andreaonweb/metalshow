@@ -1,0 +1,31 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid v.$color-border;
+  background-color: v.$color-bg-elevated;
+  color: v.$color-text-muted;
+  border-radius: 999px;
+  padding: v.$space-1 v.$space-4;
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: v.$color-accent;
+  }
+}
+
+.active {
+  background-color: v.$color-accent-muted;
+  border-color: v.$color-accent;
+  color: v.$color-text;
+}

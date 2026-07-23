@@ -1,0 +1,29 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-5;
+
+  @include m.respond-up(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.respond-up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: v.$space-4;
+  margin-top: v.$space-6;
+}
+
+.pageLabel {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+}

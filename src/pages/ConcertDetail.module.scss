@@ -1,0 +1,78 @@
+@use '../styles/variables' as v;
+@use '../styles/mixins' as m;
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-1;
+  color: v.$color-text-muted;
+  text-decoration: none;
+  margin-bottom: v.$space-4;
+  font-size: v.$font-size-sm;
+
+  @include m.focus-ring;
+
+  &:hover {
+    color: v.$color-text;
+  }
+}
+
+.hero {
+  display: grid;
+  gap: v.$space-5;
+  grid-template-columns: 1fr;
+
+  @include m.respond-up(md) {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.image {
+  width: 100%;
+  border-radius: v.$radius-lg;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: v.$color-bg-elevated;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+}
+
+.date {
+  color: v.$color-accent;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: v.$font-size-sm;
+}
+
+.title {
+  font-size: v.$font-size-2xl;
+}
+
+.meta {
+  color: v.$color-text-muted;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+  margin: v.$space-2 0;
+}
+
+.genreTag {
+  font-size: v.$font-size-xs;
+  color: v.$color-text-muted;
+  border: 1px solid v.$color-border;
+  border-radius: 999px;
+  padding: v.$space-1 v.$space-3;
+}
+
+.actions {
+  display: flex;
+  gap: v.$space-3;
+  margin-top: v.$space-3;
+}

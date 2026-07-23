@@ -1,0 +1,138 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.container {
+  position: relative;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid v.$color-border;
+  background-color: transparent;
+  color: v.$color-text;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: v.$color-accent;
+  }
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + #{v.$space-2});
+  right: 0;
+  width: min(90vw, 320px);
+  background-color: v.$color-bg-elevated;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-card;
+  padding: v.$space-3;
+  z-index: 20;
+
+  @include m.respond-up(md) {
+    width: 360px;
+  }
+}
+
+.input {
+  width: 100%;
+  background-color: v.$color-bg;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-sm;
+  color: v.$color-text;
+  padding: v.$space-2 v.$space-3;
+  font-size: v.$font-size-sm;
+
+  @include m.focus-ring;
+}
+
+.results {
+  margin-top: v.$space-3;
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-2;
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.hint,
+.empty {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-sm;
+  padding: v.$space-2 0;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: v.$space-3;
+  padding: v.$space-2;
+  border-radius: v.$radius-sm;
+
+  &:hover {
+    background-color: v.$color-bg-elevated-hover;
+  }
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: v.$color-bg-elevated-hover;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+  @include m.truncate(1);
+}
+
+.genre {
+  color: v.$color-text-muted;
+  font-size: v.$font-size-xs;
+  @include m.truncate(1);
+}
+
+.followButton {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-1;
+  flex-shrink: 0;
+  border: 1px solid v.$color-border;
+  background-color: transparent;
+  color: v.$color-text-muted;
+  border-radius: 999px;
+  padding: v.$space-1 v.$space-3;
+  font-size: v.$font-size-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @include m.focus-ring;
+
+  &:hover {
+    border-color: v.$color-accent;
+    color: v.$color-text;
+  }
+}
+
+.followButtonActive {
+  background-color: v.$color-accent-muted;
+  border-color: v.$color-accent;
+  color: v.$color-text;
+}

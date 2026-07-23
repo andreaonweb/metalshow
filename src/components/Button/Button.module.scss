@@ -1,0 +1,53 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  border: 1px solid transparent;
+  border-radius: v.$radius-md;
+  padding: v.$space-2 v.$space-4;
+  font-size: v.$font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.1s ease;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  @include m.focus-ring;
+}
+
+.primary {
+  background-color: v.$color-accent;
+  color: white;
+
+  &:hover {
+    background-color: v.$color-accent-hover;
+  }
+}
+
+.secondary {
+  background-color: transparent;
+  border-color: v.$color-border;
+  color: v.$color-text;
+
+  &:hover {
+    background-color: v.$color-bg-elevated-hover;
+  }
+}
+
+.ghost {
+  background-color: transparent;
+  color: v.$color-text-muted;
+
+  &:hover {
+    color: v.$color-text;
+  }
+}

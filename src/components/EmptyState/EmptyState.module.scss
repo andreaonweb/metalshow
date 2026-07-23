@@ -1,0 +1,17 @@
+@use '../../styles/variables' as v;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: v.$space-2;
+  padding: v.$space-8 v.$space-4;
+  color: v.$color-text-muted;
+}
+
+.title {
+  color: v.$color-text;
+  font-size: v.$font-size-lg;
+}

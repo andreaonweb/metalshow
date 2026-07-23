@@ -1,0 +1,22 @@
+@use '../styles/variables' as v;
+
+.artistFilterBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: v.$space-3;
+  background-color: v.$color-bg-elevated;
+  border: 1px solid v.$color-accent;
+  border-radius: v.$radius-md;
+  padding: v.$space-3 v.$space-4;
+  margin-bottom: v.$space-6;
+}
+
+.artistFilterLabel {
+  font-size: v.$font-size-sm;
+
+  strong {
+    color: v.$color-accent;
+  }
+}

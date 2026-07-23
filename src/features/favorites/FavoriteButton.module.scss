@@ -1,0 +1,28 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid v.$color-border;
+  background-color: rgba(11, 11, 13, 0.6);
+  color: v.$color-text;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+
+  @include m.focus-ring;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.active {
+  color: v.$color-accent;
+  border-color: v.$color-accent;
+}
