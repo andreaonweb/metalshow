@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { X } from 'lucide-react'
 import { GENRES } from '../api/genres'
 import { Button } from '../components/Button'
@@ -58,7 +58,8 @@ function ArtistFilteredConcerts({
 
 export function Home() {
   const [filters, setFilters] = useState<ConcertFiltersType>(INITIAL_FILTERS)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const { data, isPending, isError } = useConcerts(filters)
   const followedArtistIds = useFollowedArtistIds()
 
@@ -75,7 +76,9 @@ export function Home() {
       <ArtistFilteredConcerts
         artistId={artistId}
         artistName={artistName}
-        onClear={() => setSearchParams({})}
+        // Este filtro solo se entra desde "Grupos que sigues" en Favoritos,
+        // así que al quitarlo volvemos ahí en vez de dejar al usuario en Conciertos.
+        onClear={() => navigate('/favoritos')}
       />
     )
   }
