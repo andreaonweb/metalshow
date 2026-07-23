@@ -91,7 +91,10 @@ export function Home() {
         concerts={sortedConcerts}
         isLoading={isPending}
         isError={isError}
-        onPageChange={(page) => setFilters((prev) => ({ ...prev, page }))}
+        onPageChange={(page) => {
+          setFilters((prev) => ({ ...prev, page }))
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }}
       />
     </section>
   )
