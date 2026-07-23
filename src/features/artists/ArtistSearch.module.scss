@@ -2,7 +2,11 @@
 @use '../../styles/mixins' as m;
 
 .container {
-  position: relative;
+  // Sin position:relative a propósito: el panel se ancla al header (que sí
+  // es un contenedor posicionado, por su sticky), no a este botón. En móvil
+  // el botón queda centrado en el header, y si el panel se anclara a él se
+  // saldría de la pantalla por la izquierda.
+  display: inline-flex;
 }
 
 .toggle {
@@ -27,9 +31,10 @@
 
 .panel {
   position: absolute;
-  top: calc(100% + #{v.$space-2});
+  top: 100%;
   right: 0;
-  width: min(90vw, 320px);
+  margin-top: v.$space-2;
+  width: min(calc(100vw - #{v.$space-4} * 2), 320px);
   background-color: v.$color-bg-elevated;
   border: 1px solid v.$color-border;
   border-radius: v.$radius-md;

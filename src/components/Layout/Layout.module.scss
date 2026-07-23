@@ -32,12 +32,12 @@
 }
 
 .logoImage {
-  height: 3.75rem;
+  height: 5rem;
   width: auto;
   display: block;
 
   @include m.respond-up(md) {
-    height: 4.5rem;
+    height: 5.5rem;
   }
 }
 
